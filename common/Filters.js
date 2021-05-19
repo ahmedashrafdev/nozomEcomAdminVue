@@ -48,16 +48,16 @@ export const toFilter = () =>{
 
     }
 }
-export const categoryFilter = () =>{
+export const groupFilter = () =>{
     return {
         type : 'select',
         items : [],
         clearable : true,
-        itemText : 'title',
-        prop : 'category',
-        itemValue : 'slug',
-        url : 'categories',
-        label : 'category'
+        itemText : 'GroupNameEn',
+        prop : 'group',
+        itemValue : 'id',
+        url : 'groups',
+        label : 'groups'
     }
 }
 export const ageFilter = () =>{
@@ -116,6 +116,38 @@ export const imageFilter = () =>{
         prop :"image",
         url : '',
         label : 'image'
+    }
+}
+
+export const ByWeightFilter = () =>{
+    return {
+        type : 'select',
+        items : [
+          {title : 'by item' , value : 0},
+          {title : 'by weight' , value : 1},
+        ],
+        clearable : true,
+        itemText : 'title',
+        itemValue : 'value',
+        prop :"ByWeight",
+        url : '',
+        label : 'type'
+    }
+}
+
+export const BannerTypeFilter = () =>{
+    return {
+        type : 'select',
+        items : [
+          {title : 'slider' , value : 0},
+          {title : 'home_banner' , value : 1},
+        ],
+        clearable : true,
+        itemText : 'title',
+        itemValue : 'value',
+        prop :"BannerType",
+        url : '',
+        label : 'type'
     }
 }
 export const closedFilter = () =>{

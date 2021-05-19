@@ -28,6 +28,14 @@ export const createDoc = (ctx) => {
     }    
 }
 
+export const editBanner = (ctx , item) => {
+    ctx.$router.push({name :'banners-id-edit' , params : {id :item.id }})
+}
+export const createBanner = ctx => {
+    ctx.$router.push({name :'banners-create'})
+}
+
+
 export const createBranch = ctx => {
     ctx.$router.push({name : 'branches-create'})
     
@@ -39,7 +47,7 @@ export const editBranch = (ctx , item) => {
 
 
 export const editProduct = (ctx , item) => {
-    ctx.$router.push({name : 'products-id' , params : {id : item.id}})
+    ctx.$router.push({name : 'products-id-edit' , params : {id : item.id}})
 }
 
 export const viewProduct = (ctx , item) => {

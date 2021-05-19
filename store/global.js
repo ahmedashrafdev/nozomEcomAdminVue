@@ -8,6 +8,7 @@ const state = {
     branches: [],
     languages: [],
     categories: [],
+    
     ages: [],
     authorLoading: false,
     authors : [],
@@ -27,6 +28,7 @@ const getters = {
   ageLoading(state) {
     return state.ageLoading;
   },
+  
   categoryLoading(state) {
     return state.categoryLoading
   },
@@ -78,6 +80,7 @@ const actions = {
         });
     });
   },
+ 
   getAges({commit}){
     commit("setAgeLoading", true);
     return new Promise((resolve, reject) => {
@@ -187,6 +190,7 @@ const mutations = {
   setErr(state, error) {
     state.errors = error;
   },
+  
   setAges(state, payload) {
     state.ages = payload;
   },

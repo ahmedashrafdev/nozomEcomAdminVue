@@ -2,7 +2,7 @@
   <v-card class=''>
     <v-data-table
     :headers="opts.headers"
-    :items="datatable.items"
+    :items="datatable.data"
     :options.sync="options"
     :server-items-length="datatable.total"
     :loading="loading"
@@ -106,9 +106,25 @@
       <v-img v-if="item.thumbnail == '' && item.thumbnail !== 'no-image'" src="https://res.cloudinary.com/dwfcmvqn5/image/upload/v1550827381/no-img.jpg" class="dt-image"/>
       <v-img v-else :src="item.thumbnail" class="dt-image"/>
     </template>
+    <template v-slot:[`item.ItemImage`]="{ item }">
+      <v-img v-if="item.ItemImage == '' && item.ItemImage == 'no-image'" src="https://res.cloudinary.com/dwfcmvqn5/image/upload/v1550827381/no-img.jpg" class="dt-image"/>
+      <v-img v-else :src="item.ItemImage" class="dt-image"/>
+    </template>
     <template v-slot:[`item.image`]="{ item }">
       <v-img v-if="item.image == '' && item.image == 'no-image'" src="https://res.cloudinary.com/dwfcmvqn5/image/upload/v1550827381/no-img.jpg" class="dt-image"/>
       <v-img v-else :src="item.image" class="dt-image"/>
+    </template>
+    <template v-slot:[`item.type`]="{ item }">
+       <span v-if="item.type == 0">slider</span>
+      <span v-else>home_banner</span>
+    </template>
+     <template v-slot:[`item.InStock`]="{ item }">
+      <span v-if="item.InStock == 1">in stock</span>
+      <span v-else>out of stock</span>
+    </template>
+     <template v-slot:[`item.ByWeight`]="{ item }">
+      <span v-if="item.ByWeight == 1">Yes</span>
+      <span v-else>No</span>
     </template>
     <template v-slot:[`item.qty`]="{ item }">
       <!-- <td v-if="!$slots.qty">{{item.qty}}</td> -->
@@ -163,7 +179,6 @@
     </template>
   </v-data-table>
   <modals-global-delete @deleted="getData"/>
-         <modals-global-create-doc/>
 
   <slot name="modals"></slot>
 

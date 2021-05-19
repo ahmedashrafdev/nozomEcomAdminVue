@@ -16,34 +16,24 @@ export default[
     to: '/users/'
   },
   {
-    icon: 'mdi-warehouse',
-    title: 'branches',
-    to: '/branches/'
+    icon: 'mdi-account-outline',
+    title: 'admins',
+    to: '/admins/'
   },
   {
     icon: 'mdi-cart-arrow-down',
     title: 'Orders',
-    to: '/documents/0'
+    to: '/orders'
   },
   {
-    icon: 'mdi-cart-arrow-up',
-    title: 'Outcoming Orders',
-    to: '/documents/2'
+    icon: 'mdi-cart-arrow-down',
+    title: 'Banners',
+    to: '/banners'
   },
   {
-    icon: 'mdi-cart-check',
-    title: 'Inventory',
-    to: '/documents/4'
-  },
-  {
-    icon: 'mdi-bus-double-decker',
-    title: 'transactions',
-    to: '/documents/7'
-  },
-  {
-    icon: 'mdi-file-document-edit-outline',
-    title: 'first balance docuents',
-    to: '/documents/6'
+    icon: 'mdi-cart-arrow-down',
+    title: 'Settings',
+    to: '/settings'
   },
   
   

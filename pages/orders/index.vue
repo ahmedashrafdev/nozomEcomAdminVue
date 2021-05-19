@@ -2,15 +2,23 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <orders />
+      <builders-data-table :opts="opts">
+      </builders-data-table>
     </v-col>
   </v-row>
 </template>
+
 <script>
-import orders from "@/components/datatables/orders.vue"
+import DatatableBuilder from "@/builders/datatable.js"
+import DatatableDirector from "@/builders/datatableDirector.js"
 export default {
-  components:{
-    orders
-  }
+  data(){
+    const opts = new DatatableDirector(new DatatableBuilder()).makeOrders()
+    // // const opts = new DatatableDirector(DatatableBuilder()).makeDocuments()
+   
+    return {
+      opts
+    }
+  },
 }
 </script>

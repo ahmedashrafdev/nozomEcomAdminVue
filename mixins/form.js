@@ -24,7 +24,6 @@ export default {
       },
       enter(input){
         input.enter(this)
-
       }
     },
     created(){
