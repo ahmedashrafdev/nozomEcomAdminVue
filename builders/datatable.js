@@ -59,8 +59,8 @@ export default class DatatableBuilder {
         this.datatable.viewable = viewable
         return this
     }
-    setDeleteble(deleteble){
-        this.datatable.deleteble = deleteble
+    setDeleteable(deleteable){
+        this.datatable.deleteable = deleteable
         return this
     }
     

@@ -154,7 +154,7 @@
           Edit
 
         </v-btn>
-        <v-btn v-if="opts.deleteble !== false  && (typeof item.closed_at == 'undefined' || item.closed_at == null)" @click="deleteItem(item)" color="danger" class="mr-4 mb-0">
+        <v-btn v-if="opts.deleteable !== false  && (typeof item.closed_at == 'undefined' || item.closed_at == null)" @click="deleteItem(item)" color="danger" class="mr-4 mb-0">
           <v-icon
             small
           >

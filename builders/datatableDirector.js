@@ -6,7 +6,7 @@ import {
     toFilter,
 } from "@/common/Filters.js"
 
-import { viewProduct, editProduct, editBanner , createBanner } from "@/common/dataTableActions.js"
+import { viewProduct, editProduct, editBanner , editSetting , createBanner } from "@/common/dataTableActions.js"
 export default class DatatableDirector {
     constructor(builder){
         this.builder = builder
@@ -60,6 +60,33 @@ export default class DatatableDirector {
                 .setCreateLoading(false)
                 .setEditable(false)
                 .setViewable(true)
+                .setHeaders(headers)
+                .setFilters(filters)
+                .build()
+    }
+    makeSettings() {
+        const  filters  =  [
+            
+        ]
+        
+        const  headers  =  [
+            { text: 'id', value: 'id' , align: "center" },
+            { text: 'key', value: 'key' , align: "center" },
+            { text: 'value', value: 'value' , align: "center"},
+            { text: 'value_ar', value: 'value_ar' , align: "center"},
+            { text: 'created at', value: 'created_at' , align: "center" },
+            { text: 'actions', value: 'actions' , align: "center" },
+        ]
+        return this.builder
+                .setTitle('settings')
+                .setTable('settings')
+                .setUrl('settings')
+                .setCreateLoading(false)
+                .setDeleteable(false)
+                .setEditable(true)
+                .setEdit(editSetting)
+                .setViewable(false)
+                .setCreateAble(false)
                 .setHeaders(headers)
                 .setFilters(filters)
                 .build()

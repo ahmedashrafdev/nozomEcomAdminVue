@@ -31,6 +31,10 @@ export const createDoc = (ctx) => {
 export const editBanner = (ctx , item) => {
     ctx.$router.push({name :'banners-id-edit' , params : {id :item.id }})
 }
+
+export const editSetting = (ctx , item) => {
+    ctx.$router.push({name :'settings-id-edit' , params : {id :item.id }})
+}
 export const createBanner = ctx => {
     ctx.$router.push({name :'banners-create'})
 }
