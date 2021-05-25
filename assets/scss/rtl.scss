@@ -1,0 +1,14 @@
+@font-face {
+    font-family: "kufi";
+    src: local("kufi"),
+         url(~assets/fonts/Kufi-Regular.ttf) format("truetype");
+}
+
+
+
+
+.rtl{
+    &.v-application {
+        font-family: "kufi",sans-serif !important;
+    }
+}

@@ -3,7 +3,7 @@
   <v-row>
     <v-col class="text-center">
       <v-select
-        label="type"
+        :label="$t(type)"
         id="type" ref="type"
         :items="[{title : 'slider' , value : 0},{title : 'home_banner' , value : 1}]"
         :item-text="title"
@@ -13,13 +13,13 @@
         dense
       ></v-select>
       <v-file-input
-        label="Image"
+        :label="$t(image)"
         id="iamge" ref="iamge"
         v-model="form.image"
         outlined
         dense
       ></v-file-input>
-      <v-btn color="primary" @click.prevent="submit">Submit</v-btn>
+      <v-btn color="primary" @click.prevent="submit">{{$t('submit')}}</v-btn>
     </v-col>
   </v-row>
 </template>

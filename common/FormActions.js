@@ -106,18 +106,19 @@ export const editAddProduct = async (ctx) => {
 export const login = async (ctx) => {
     ctx.opts.loading = true
     await ctx.$refs.form.validate()
-    
+    if(ctx.opts.valid){
         ctx.$store.dispatch('myAuth/login' , {"auth" : ctx.$auth ,'form' :ctx.form})
-        .then(res => {
+        .then(() => {
             clearErr(ctx)
-            
-            
             ctx.$refs.form.reset()
-            console.log('created' , res)
         })
         .catch(err => {
             setErr(err ,ctx)
         })
+    } else {
+        ctx.opts.loading = false
+    }
+
     
 }
 

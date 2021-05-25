@@ -2,38 +2,38 @@
 export default[
   {
     icon: 'mdi-apps',
-    title: 'Dasboard',
-    to: '/'
+    title: 'dashboard',
+    to: 'index'
   },
   {
     icon: 'mdi-book-open-blank-variant',
     title: 'products',
-    to: '/products/'
+    to: 'products'
   },
   {
     icon: 'mdi-account-outline',
     title: 'users',
-    to: '/users/'
+    to: 'users'
   },
   {
     icon: 'mdi-account-outline',
     title: 'admins',
-    to: '/admins/'
+    to: 'admins'
   },
   {
     icon: 'mdi-cart-arrow-down',
-    title: 'Orders',
-    to: '/orders'
+    title: 'orders',
+    to: 'orders'
   },
   {
     icon: 'mdi-cart-arrow-down',
-    title: 'Banners',
-    to: '/banners'
+    title: 'banners',
+    to: 'banners'
   },
   {
     icon: 'mdi-cart-arrow-down',
-    title: 'Settings',
-    to: '/settings'
+    title: 'settings',
+    to: 'settings'
   },
   
   

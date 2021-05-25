@@ -1,11 +1,11 @@
 <template>
     <v-dialog v-model="active" max-width="500px">
         <v-card>
-            <v-card-title class="headline">Are you sure you want to delete this item?</v-card-title>
+            <v-card-title class="headline">{{$t('delete_sure')}}</v-card-title>
             <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-            <v-btn color="blue darken-1" text @click="remove">OK</v-btn>
+            <v-btn color="blue darken-1" text @click="close">{{$t('cancle')}}</v-btn>
+            <v-btn color="blue darken-1" text @click="remove">{{$t('confirm')}}</v-btn>
             <v-spacer></v-spacer>
             </v-card-actions>
         </v-card>

@@ -3,7 +3,7 @@ export default {
     props : ['opts'],
     data(){
       return {
-        valid : false,
+        valid : true,
         metaHidden : false,
         errors : [],
         form : {}
@@ -19,8 +19,7 @@ export default {
     },
     methods :{
       async submit(){
-        this.opts.action(this)
-        
+        await this.opts.action(this)
       },
       enter(input){
         input.enter(this)

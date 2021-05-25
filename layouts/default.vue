@@ -1,15 +1,16 @@
 <template>
-  <v-app dark>
+  <v-app dark :class="{rtl : $i18n.locale == 'ar'}">
     <v-navigation-drawer
       v-model="drawer"
       fixed
+      :right="$i18n.locale === 'ar'"
       app
     >
       <v-list>
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
-          :to="item.to"
+          :to="{name :`${item.to}___${$i18n.locale}`}"
           router
           exact
         >
@@ -17,7 +18,7 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title v-text="$t(item.title)" />
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -50,10 +51,14 @@
             :key="n"
             @click="() => {}"
           >
-            <v-list-item-title>Option {{ n }}</v-list-item-title>
+            <v-list-item-title>{{$t('option')}} {{ n }}</v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
+      <v-btn  @click.prevent="switchLanguage" icon>
+        <v-icon>mdi-earth</v-icon>
+        <!-- {{$t('language')}} -->
+      </v-btn>
       <v-btn @click.prevent="logout" icon>
         <v-icon>mdi-application-export</v-icon>
       </v-btn>
@@ -81,19 +86,39 @@ export default {
     return {
       drawer:true,
       items,
-      title: 'SUM'
+      title: 'ELNOZOM'
     }
   },
+  created(){
+    const locale = localStorage.getItem('locale')
+    if(locale){
+      this.$i18n.locale = locale
+    }
+    this.$vuetify.rtl = this.$i18n.locale === 'ar'
+  },
   methods:{
+    switchLanguage(){
+    // console.log(this.$vuetify.rtl);
+
+      const locale = this.$i18n.locale === 'en' ? 'ar' : 'en'
+      localStorage.setItem('locale' , locale)
+      if(locale == 'ar'){
+          this.$vuetify.rtl = true
+      } else {
+          this.$vuetify.rtl = false
+
+      }
+      this.$router.push({name : `index___${locale}`})
+    },
     logout() {
             this.$auth.logout()
             .then(() => {
                 const snackbar = {
                 active : true,
-                text: 'logged out in successfully'
+                text: 'logged_out'
                 }
                 this.$store.commit('ui/setSnackbar' , snackbar)
-                this.$router.push({name: 'login'})
+                this.$router.push({name: `login___${this.$i18n.locale}`})
             })
         },
   }

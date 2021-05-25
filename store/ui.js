@@ -1,5 +1,5 @@
 
-const state = {
+const state =() => ({
   errors: null,
   deleteModal: false,
   createModal: false,
@@ -11,7 +11,7 @@ const state = {
     active: false,
     text: '',
   },
-};
+});
 
 const getters = {
     deleteModal(state) {

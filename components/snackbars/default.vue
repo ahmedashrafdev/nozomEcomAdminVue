@@ -5,7 +5,7 @@
       right
       :timeout="3000"
     >
-      {{ snackbar.text }}
+      {{ $t(snackbar.text) }}
 
      
     </v-snackbar>

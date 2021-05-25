@@ -1,4 +1,6 @@
 import colors from 'vuetify/es5/util/colors'
+import en from './locales/en.json'
+import ar from './locales/ar.json'
 
 export default {
   // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
@@ -23,14 +25,17 @@ export default {
   },
 
   server :{
-    host : "192.168.1.102"
+    host : process.env.APP_HOST,
+    port : process.env.APP_PORT,
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~/assets/variables.css',
     '~/assets/scss/global.css',
-    '~/assets/scss/utilities.css'
+    '~/assets/scss/utilities.css',
+    '@/assets/scss/rtl.css',
+
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -58,9 +63,21 @@ export default {
     '@nuxtjs/pwa',
 
     '@nuxtjs/auth-next',
+    'nuxt-i18n',
     
   ],
 
+  i18n: {
+    locales: ['en', 'ar'],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en',
+      messages: {
+        en,
+        ar
+      }
+    }
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
 

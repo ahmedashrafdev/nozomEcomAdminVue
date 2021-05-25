@@ -2,23 +2,25 @@
 
 import Http  from "@/common/Http.js";
 // import i18n from "@/i18n.js";
-const state = {
-    errors: null,
-    deleteItem:{},
-    branches: [],
-    languages: [],
-    categories: [],
-    
-    ages: [],
-    authorLoading: false,
-    authors : [],
-    deleteAcion:{},
-    productLoading: false,
-    categoryLoading: false,
-    branchesLoading: false,
-    ageLoading: false,
-    languageLoading: false,
-    loading: false,
+const state = () => {
+    return {
+      errors: null,
+      deleteItem:{},
+      branches: [],
+      languages: [],
+      categories: [],
+      
+      ages: [],
+      authorLoading: false,
+      authors : [],
+      deleteAcion:{},
+      productLoading: false,
+      categoryLoading: false,
+      branchesLoading: false,
+      ageLoading: false,
+      languageLoading: false,
+      loading: false,
+    }
 };
 
 const getters = {

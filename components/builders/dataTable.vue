@@ -15,7 +15,7 @@
         <v-toolbar
           flat
         >
-          <v-toolbar-title>{{opts.title}}</v-toolbar-title>
+          <v-toolbar-title>{{$t(opts.title)}}</v-toolbar-title>
           <v-divider
             class="mx-4"
             inset
@@ -31,7 +31,7 @@
               @click.prevent="create"
             >
             <v-icon >mdi-plus</v-icon>
-              New Item
+              {{$t('create')}}
           </v-btn>
           <slot name="actions"></slot>
           <!-- <modals-products-create/> -->
@@ -40,7 +40,7 @@
       <div class="spacing-playground pa-6 mb-6">
         <v-row>
           <v-col cols="3" v-for="(fil, index) in opts.filters" :key="index">
-            <v-text-field v-model="form[fil.prop]" :clearable="fil.clearable" @keypress="isNumber($event)" @input="filter()" v-if="fil.type == 'number'" :label="fil.label" ></v-text-field>
+            <v-text-field v-model="form[fil.prop]" :clearable="fil.clearable" @keypress="isNumber($event)" @input="filter()" v-if="fil.type == 'number'" :label="$t(fil.label)" ></v-text-field>
             <v-select
                 v-else-if="fil.type == 'select'"
                 :items="fil.items"
@@ -48,7 +48,7 @@
                 :clearable="fil.clearable"
                 :item-text="fil.itemText"
                 :item-value="fil.itemValue"
-                :label="fil.label"
+                :label="$t(fil.label)"
             ></v-select>
              <v-menu
                 v-else-if="fil.type == 'date'"
@@ -64,7 +64,7 @@
                 <template v-slot:activator="{ on, attrs }">
                   <v-text-field
                     v-model="form[fil.prop]"
-                    :label="fil.label"
+                    :label="$t(fil.label)"
                     clearable
                     prepend-icon="mdi-calendar"
                     readonly
@@ -86,7 +86,7 @@
             <v-text-field
                 v-model="form.search"
                 append-icon="mdi-magnify"
-                label="Search"
+                :label="$t('search')"
                 single-line
                 hide-details
               >
@@ -94,7 +94,7 @@
           </v-col>
           <v-col cols="4">
             <v-btn color="primary" v-if="opts.rememberAble != false" class="capitalize w-full" @click.prevent="saveFilters()">
-              remember my choices
+              {{$t('remember_my_choices')}}
             </v-btn>
           </v-col>
         </v-row>
@@ -115,16 +115,16 @@
       <v-img v-else :src="item.image" class="dt-image"/>
     </template>
     <template v-slot:[`item.type`]="{ item }">
-       <span v-if="item.type == 0">slider</span>
-      <span v-else>home_banner</span>
+       <span v-if="item.type == 0">{{$t('slider')}}</span>
+      <span v-else>{{$t('home_banner')}}</span>
     </template>
      <template v-slot:[`item.InStock`]="{ item }">
-      <span v-if="item.InStock == 1">in stock</span>
-      <span v-else>out of stock</span>
+      <span v-if="item.InStock == 1">{{$t('in_stock')}}</span>
+      <span v-else>{{$t('out_of_stock')}}</span>
     </template>
      <template v-slot:[`item.ByWeight`]="{ item }">
-      <span v-if="item.ByWeight == 1">Yes</span>
-      <span v-else>No</span>
+      <span v-if="item.ByWeight == 1">{{$t('yes')}}</span>
+      <span v-else>{{$t('no')}}</span>
     </template>
     <template v-slot:[`item.qty`]="{ item }">
       <!-- <td v-if="!$slots.qty">{{item.qty}}</td> -->
@@ -135,7 +135,7 @@
           :loading="qtyLoading"
           v-model="qty"
           @keyup.enter="updateQty(item.id)"
-          label="Quanitity"
+          :label="$t('qty')"
           class="dt-input"
           dark
           solo
@@ -151,7 +151,7 @@
           >
             mdi-pencil
           </v-icon>
-          Edit
+          {{$t('edit')}}
 
         </v-btn>
         <v-btn v-if="opts.deleteable !== false  && (typeof item.closed_at == 'undefined' || item.closed_at == null)" @click="deleteItem(item)" color="danger" class="mr-4 mb-0">
@@ -168,14 +168,14 @@
               >
                 mdi-eye
               </v-icon>
-              View
+              {{$t('view')}}
             </v-btn>
         <slot name="itemActions" :item="item"></slot>
 
       
     </template>
     <template v-slot:no-data>
-      <span>No data found</span>
+      <span>{{$t('no_data_found')}}</span>
     </template>
   </v-data-table>
   <modals-global-delete @deleted="getData"/>

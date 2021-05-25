@@ -27,7 +27,7 @@
                         :ref="input.ref"
                         :hint="input.hint"
                         @keyup.enter="enter(input)"
-                        :label="input.label"
+                        :label="$t(input.label)"
                         ></v-text-field>
                     </div>
                     <div class="select" v-if="input.type=='select'">
@@ -41,12 +41,12 @@
                             :loading="input.loading"
                             :item-text="input.inputText"
                             :item-value="input.inputValue"
-                            :label="input.label"
+                            :label="$t(input.label)"
                         ></v-select>
                     </div>
                     <div class="textarea" v-if="input.type=='textarea'">
                         <v-textarea
-                            :label="input.label"
+                            :label="$t(input.label)"
                             v-model="form[input.prop]"
                             :rules="typeof input.rules == 'undefined' ?[] : input.rules"
                             :error="opts.errors.hasOwnProperty(input.prop)"
@@ -68,14 +68,14 @@
                             :item-text="input.inputText"
                             :item-value="input.inputValue"
                             :return-object="false"
-                            :label="input.label"
+                            :label="$t(input.label)"
                             ></v-combobox>
                             <!-- <v-icon @click.prevent="createAuthor" >mdi-plus</v-icon> -->
                     </div>
                     <div class="switch" v-if="input.type=='switch'">
                         <v-switch
                             v-model="form[input.prop]"
-                            :label="input.label"
+                            :label="$t(input.label)"
                         ></v-switch>
                     </div>
                     <div class="treeview" v-if="input.type=='treeview'">
@@ -98,7 +98,7 @@
                     :loading="opts.loading"
                     @click.prevent="submit"
                     >
-                    Submit
+                    {{$t('submit')}}
                 </v-btn>
             </v-col>
         </v-row>

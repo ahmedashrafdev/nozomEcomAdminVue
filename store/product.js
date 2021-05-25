@@ -3,7 +3,7 @@
 import Http  from "@/common/Http.js";
 import {serializeQuery} from "@/common/Helpers.js";
 // import i18n from "@/i18n.js";
-const state = {
+const state = () => ({
   errors: null,
   createError: [],
   product: {},
@@ -34,7 +34,7 @@ const state = {
     data : [],
     loading: false,
   },
-};
+});
 
 const getters = {
   datatable(state) {

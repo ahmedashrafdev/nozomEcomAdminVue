@@ -4,7 +4,7 @@
       
       <v-card>
         <v-card-title class="headline">
-          Dashboard
+          {{$t('dashboard')}}
         </v-card-title>
       </v-card>
     </v-col>

@@ -3,13 +3,13 @@
   <v-row>
     <v-col class="text-center">
       <v-file-input
-        label="Image"
+        :label="$t('image')"
         id="iamge" ref="iamge"
         v-model="form.image"
         outlined
         dense
       ></v-file-input>
-      <v-btn color="primary" @click.prevent="submit">Submit</v-btn>
+      <v-btn color="primary" @click.prevent="submit">{{$t('submit')}}</v-btn>
     </v-col>
   </v-row>
 </template>

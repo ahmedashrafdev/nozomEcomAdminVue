@@ -14,7 +14,7 @@
                 <v-list-item-subtitle
                   class="text--primary"
                 >
-                  no data
+                  {{$t('no_data')}}
                 </v-list-item-subtitle>
               </v-list-item-content>
             </template>

@@ -5,14 +5,17 @@
 
 .dt-image {
   width: 60px;
-  box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.7);
+          box-shadow: -5px 10px 10px rgba(0, 0, 0, 0.7);
   margin: 10px;
   cursor: pointer;
+  -webkit-transition: var(--transitio);
   transition: var(--transitio);
 }
 
 .dt-image:hover {
-  transform: scale(1.01);
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 .dt-select, .dt-input {
@@ -43,9 +46,14 @@ th {
 }
 
 .items-center {
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .justify-center {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+/*# sourceMappingURL=global.css.map */

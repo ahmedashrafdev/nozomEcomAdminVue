@@ -40,7 +40,7 @@ export const actions = {
                 commit('setLoading' , false)
                 const snackbar = {
                     active : true,
-                    text: 'logged in successfully'
+                    text: 'logged_in_successfully'
                 }
                 resolve(d.data)
                 commit('ui/setSnackbar' , snackbar , { root: true })
